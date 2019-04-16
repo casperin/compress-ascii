@@ -80,3 +80,21 @@ func TestCompressAndDecompress(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestCompressAndDecompress8Chars(t *testing.T) {
+	txt := "12345678"
+	bts, _ := Compress(txt)
+	decompressed, _ := Decompress(bts)
+	if decompressed != txt {
+		t.Fail()
+	}
+}
+
+func TestCompressAndDecompress16Chars(t *testing.T) {
+	txt := "1234567812345678"
+	bts, _ := Compress(txt)
+	decompressed, _ := Decompress(bts)
+	if decompressed != txt {
+		t.Fail()
+	}
+}
